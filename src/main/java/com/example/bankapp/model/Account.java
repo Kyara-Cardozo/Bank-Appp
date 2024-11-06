@@ -1,18 +1,18 @@
 package com.example.bankapp.model;
 
 import jakarta.persistence.*;
-import jakarta.transaction.Transaction;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import java.math.BigDecimal;
 import java.util.Collection;
 import java.util.List;
 
 @Entity
-public class Account {
+public class Account implements UserDetails {
 
     @Id
-    @GeneratedValue(strategy =  GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String username;
     private String password;
@@ -27,12 +27,22 @@ public class Account {
     public Account() {
 
     }
-    public Account(String username, Collection<? extends GrantedAuthority> authorities, List<Transaction> transactions, BigDecimal balance, String password) {
+
+    public Account(String username, String password, BigDecimal balance, List<Transaction> transactions, Collection<? extends GrantedAuthority> authorities) {
         this.username = username;
-        this.authorities = authorities;
-        this.transactions = transactions;
-        this.balance = balance;
         this.password = password;
+        this.balance = balance;
+        this.transactions = transactions;
+        this.authorities = authorities;
+    }
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return authorities;
+    }
+
+    public void setAuthorities(Collection<? extends GrantedAuthority> authorities) {
+        this.authorities = authorities;
     }
 
     public Long getId() {
@@ -73,13 +83,5 @@ public class Account {
 
     public void setTransactions(List<Transaction> transactions) {
         this.transactions = transactions;
-    }
-
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return authorities;
-    }
-
-    public void setAuthorities(Collection<? extends GrantedAuthority> authorities) {
-        this.authorities = authorities;
     }
 }
