@@ -1,0 +1,81 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(to right, #000000, #086f46);
+  color: #ffffff;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.navbar-custom {
+  background-color: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.navbar-custom a {
+  color: #ffffff !important;
+}
+
+.navbar-custom .navbar-brand {
+  font-weight: bold;
+}
+
+.container {
+  max-width: 1000px;
+  margin-top: 80px;
+  text-align: center;
+}
+
+h2 {
+  margin-bottom: 20px;
+}
+
+.table-custom {
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  overflow-x: auto;
+
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.table-striped td, .table-striped th {
+  color: #ffffff;
+  font-weight: bold;
+  padding: 15px;
+  border-bottom: 1px solid #ffd700;
+}
+
+.table-striped th {
+  background-color: rgba(255, 215, 0, 0.2);
+}
+
+.text-success {
+  color: #28a745 !important;
+}
+
+.text-danger {
+  color: #dc3545 !important;
+}
+
+.custom-link {
+  color: #1389b1;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.custom-link:hover {
+  color: #ffecb3;
+  text-decoration: underline;
+}
+
+}

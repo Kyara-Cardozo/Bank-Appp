@@ -1,0 +1,23 @@
+<nav class="navbar navbar-expand-lg navbar-custom">
+  <a class="navbar-brand" href="#">IBM Bank</a>
+</nav>
+
+<div class="container">
+  <h2 class="text-center">Login</h2>
+  <form (ngSubmit)="onLogin()">
+    <div class="form-group">
+      <label>Usuário:</label>
+      <input type="text" class="form-control" [(ngModel)]="username" name="username" required />
+    </div>
+    <div class="form-group">
+      <label>Senha:</label>
+      <input type="password" class="form-control" [(ngModel)]="password" name="password" required />
+    </div>
+    <button type="submit" class="btn btn-block">Login</button>
+  </form>
+  <p class="text-center mt-3">Não tem conta? <a routerLink="/register" class="custom-link">Crie sua conta</a></p>
+
+  <div *ngIf="errorMessage" class="alert alert-danger mt-3 text-center">
+    {{ errorMessage }}
+  </div>
+</div>
