@@ -6,7 +6,7 @@
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background: linear-gradient(to right, #000000, #ffd700);
+            background: linear-gradient(to right, #000000, #086f46);
             color: #ffffff;
             margin: 0;
             padding: 0;
@@ -14,7 +14,6 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            flex-direction: column;
         }
 
         .navbar-custom {
@@ -50,7 +49,7 @@
         }
 
         .btn-primary:hover {
-            background-color: #ffd700;
+            background-color: #64e171;
             color: #000;
         }
 
@@ -95,7 +94,7 @@
         }
 
         .footer a {
-            color: #ffd700;
+            color: #28a745;
             text-decoration: none;
             font-weight: bold;
         }
@@ -118,74 +117,71 @@
 <nav class="navbar navbar-expand-lg navbar-custom">
     <a class="navbar-brand" href="#">IBM Bank</a>
     <ul class="navbar-nav ml-auto">
-        <li class="nav-item"><a class="nav-link" href="/dashboard">Dashboard</a></li>
-        <li class="nav-item"><a class="nav-link" href="/transactions">Transactions</a></li>
-        <li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
+        <li class="nav-item"><a class="nav-link" href="/dashboard">Inicio</a></li>
+        <li class="nav-item"><a class="nav-link" href="/transactions">Extrato</a></li>
+        <li class="nav-item"><a class="nav-link" href="/logout">Ate já</a></li>
     </ul>
 </nav>
 
 <div class="container dashboard-container">
     <div class="text-center">
-        <h2 th:text="'Welcome, ' + ${account.username}"></h2>
-        <h3 th:text="'Current Balance: $' + ${account.balance}"></h3>
+        <h2 th:text="'Que bom te ver aqui, ' + ${account.username}"></h2>
+        <h3 th:text="'Seu saldo é: $' + ${account.balance}"></h3>
     </div>
 
     <!-- Account Details Section -->
     <div class="account-details">
-        <h4>Account Details</h4>
-        <p><strong>Account Number:</strong> <span th:text="${account.id}"></span></p> <!-- Use account.id for account number -->
-        <p><strong>Account Type:</strong> Savings</p>
+        <h4>Detalhes da Conta</h4>
+        <p><strong>Número da conta:</strong> <span th:text="${account.id}"></span></p> <!-- Use account.id for account number -->
     </div>
 
     <div class="row justify-content-center">
         <!-- Deposit Section -->
         <div class="col-md-3">
             <button class="btn btn-block btn-primary" type="button" data-toggle="collapse" data-target="#depositForm" aria-expanded="false" aria-controls="depositForm">
-                Deposit
+                Deposito
             </button>
             <div class="collapse mt-3" id="depositForm">
                 <form method="post" action="/deposit" class="form-container">
                     <div class="form-group">
-                        <label>Amount:</label>
+                        <label>Total:</label>
                         <input type="number" class="form-control" name="amount" required />
                     </div>
-                    <button type="submit" class="btn btn-block btn-success">Submit</button>
+                    <button type="submit" class="btn btn-block btn-success">Salvar</button>
                 </form>
             </div>
         </div>
 
-        <!-- Withdraw Section -->
         <div class="col-md-3">
             <button class="btn btn-block btn-primary" type="button" data-toggle="collapse" data-target="#withdrawForm" aria-expanded="false" aria-controls="withdrawForm">
-                Withdraw
+                Bora sacar?
             </button>
             <div class="collapse mt-3" id="withdrawForm">
                 <form method="post" action="/withdraw" class="form-container">
                     <div class="form-group">
-                        <label>Amount:</label>
+                        <label>Valor:</label>
                         <input type="number" class="form-control" name="amount" required />
                     </div>
-                    <button type="submit" class="btn btn-block btn-success">Submit</button>
+                    <button type="submit" class="btn btn-block btn-success">Salvar</button>
                 </form>
             </div>
         </div>
 
-        <!-- Transfer Section -->
         <div class="col-md-3">
             <button class="btn btn-block btn-primary" type="button" data-toggle="collapse" data-target="#transferForm" aria-expanded="false" aria-controls="transferForm">
-                Transfer Money
+               Hora de Pagar Boleto
             </button>
             <div class="collapse mt-3" id="transferForm">
                 <form method="post" action="/transfer" class="form-container">
                     <div class="form-group">
-                        <label>Recipient Username:</label>
+                        <label>Destinatário:</label>
                         <input type="text" class="form-control" name="toUsername" required />
                     </div>
                     <div class="form-group">
-                        <label>Amount:</label>
+                        <label>Valor:</label>
                         <input type="number" class="form-control" name="amount" required />
                     </div>
-                    <button type="submit" class="btn btn-block btn-success">Submit</button>
+                    <button type="submit" class="btn btn-block btn-success">Enviar</button>
                 </form>
             </div>
         </div>
