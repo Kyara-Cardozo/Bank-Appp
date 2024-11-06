@@ -1,27 +1,27 @@
+import { NgIf } from '@angular/common';
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
+import { FormsModule } from '@angular/forms';  
+import { Router } from '@angular/router'; 
 
 @Component({
   selector: 'app-login',
-  standalone: true,
-  imports: [CommonModule, FormsModule],
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
+  standalone: true,  
+  imports: [FormsModule, NgIf]  
 })
 export class LoginComponent {
-  username = '';
-  password = '';
-  errorMessage = '';
+  username: string = '';
+  password: string = '';
+  errorMessage: string | null = null;
 
   constructor(private router: Router) {}
 
   onLogin() {
-    if (this.username === 'user' && this.password === 'pass') {
+    if (this.username === 'admin' && this.password === '1234') {
       this.router.navigate(['/dashboard']);
     } else {
-      this.errorMessage = 'Senha ou usuário errado.';
+      this.errorMessage = 'Usuário ou senha inválidos';
     }
   }
 }
