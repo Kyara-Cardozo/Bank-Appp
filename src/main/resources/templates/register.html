@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Register - Goldencat Bank</title>
+    <title>Register - IBM Bank</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background: linear-gradient(to right, #000000, #ffd700);
+            background: linear-gradient(to right, #000000, #086f46);
             color: #ffffff;
             margin: 0;
             padding: 0;
@@ -66,13 +66,13 @@
         }
 
         .form-group input {
-            border: 1px solid #ffd700;
+            border: 1px solid #4afb93;
             background-color: #333;
             color: #ffffff;
         }
 
         .btn {
-            background-color: #ffd700;
+            background-color: #00df27;
             border: none;
             color: black;
             transition: background-color 0.3s ease;
@@ -83,7 +83,7 @@
         }
 
         .custom-link {
-            color: #ffd700;
+            color: #1389b1;
             text-decoration: none;
             font-weight: bold;
         }
@@ -104,7 +104,6 @@
             text-align: center;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
         }
-
         @keyframes shake {
             0% { transform: translateX(0); }
             25% { transform: translateX(-5px); }
@@ -115,42 +114,37 @@
     </style>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-custom">
-    <a class="navbar-brand" href="#">Goldencat Bank</a>
-    <div class="ml-auto social-icons">
-        <a href="https://www.youtube.com" target="_blank" title="YouTube">
-            <i class="fab fa-youtube"></i>
-        </a>
-        <a href="https://www.linkedin.com" target="_blank" title="LinkedIn">
-            <i class="fab fa-linkedin"></i>
-        </a>
-    </div>
-</nav>
 
 <div class="container">
-    <h2 class="text-center">Register a New Account</h2>
+    <h2 class="text-center">Cadastre-se</h2>
     <form method="post" action="/register">
         <div class="form-group">
-            <label>Username:</label>
+            <label>Nome:</label>
             <input type="text" class="form-control" name="username" required />
         </div>
         <div class="form-group">
-            <label>Password:</label>
+            <label>Idade:</label>
+            <input type="number" class="form-control" name="age" min="1" required />
+        </div>
+        <div class="form-group">
+            <label>Email:</label>
+            <input type="email" class="form-control" name="email" required />
+        </div>
+        <div class="form-group">
+            <label>Numero da conta:</label>
             <input type="password" class="form-control" name="password" required />
         </div>
-        <button type="submit" class="btn btn-block">Register</button>
+        <button type="submit" class="btn btn-block">Cadastra-se</button>
     </form>
-    <p class="text-center mt-3">Already have an account? <a href="/login" class="custom-link">Login here</a></p>
+    <p class="text-center mt-3">Já possui conta? <a href="/login" class="custom-link">Faça o login</a></p>
 
     <div th:if="${error}" class="alert alert-danger mt-3 text-center">
         User already present.
     </div>
 </div>
 
-<!-- Footer -->
-<footer class="footer">
-    <p>&copy; 2024 Code With Goldencat. All rights reserved. | <a href="#" class="custom-link">Privacy Policy</a> | <a href="#" class="custom-link">Terms of Service</a></p>
-</footer>
+
+
 
 </body>
 </html>

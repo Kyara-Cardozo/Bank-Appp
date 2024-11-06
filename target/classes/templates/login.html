@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Login - Goldencat Bank</title>
+    <title>Login - IBM</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background: linear-gradient(to right, #000000, #ffd700);
+            background: linear-gradient(to right, #000000, #086f46);
             color: #ffffff;
             margin: 0;
             padding: 0;
@@ -66,13 +66,13 @@
         }
 
         .form-group input {
-            border: 1px solid #ffd700;
+            border: 1px solid #4afb93;
             background-color: #333;
             color: #ffffff;
         }
 
         .btn {
-            background-color: #ffd700;
+            background-color: #00df27;
             border: none;
             color: black;
             transition: background-color 0.3s ease;
@@ -83,7 +83,7 @@
         }
 
         .custom-link {
-            color: #ffd700;
+            color: #1389b1;
             text-decoration: none;
             font-weight: bold;
         }
@@ -116,41 +116,31 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-custom">
-    <a class="navbar-brand" href="#">Goldencat Bank</a>
-    <div class="ml-auto social-icons">
-        <a href="https://www.youtube.com/@codewithgoldencat" target="_blank" title="YouTube">
-            <i class="fab fa-youtube"></i>
-        </a>
-        <a href="https://www.linkedin.com/in/code-with-goldecat-453460297/" target="_blank" title="LinkedIn">
-            <i class="fab fa-linkedin"></i>
-        </a>
-    </div>
+    <a class="navbar-brand" href="#">IBM Bank</a>
+
 </nav>
 
 <div class="container">
     <h2 class="text-center">Login</h2>
     <form method="post" action="/login">
         <div class="form-group">
-            <label>Username:</label>
+            <label>Usuario:</label>
             <input type="text" class="form-control" name="username" required />
         </div>
         <div class="form-group">
-            <label>Password:</label>
+            <label>Senha:</label>
             <input type="password" class="form-control" name="password" required />
         </div>
         <button type="submit" class="btn btn-block">Login</button>
     </form>
-    <p class="text-center mt-3">Don't have an account? <a href="/register" class="custom-link">Register here</a></p>
+    <p class="text-center mt-3">Não tem conta? <a href="/register" class="custom-link">Crie sua conta</a></p>
 
     <div th:if="${param.error}" class="alert alert-danger mt-3 text-center">
-        Invalid username or password.
+        Senha ou usuario errado.
     </div>
 </div>
 
-<!-- Footer -->
-<footer class="footer">
-    <p>&copy; 2024 Code With Goldencat. All rights reserved. | <a href="#" class="custom-link">Privacy Policy</a> | <a href="#" class="custom-link">Terms of Service</a></p>
-</footer>
+
 
 </body>
 </html>
