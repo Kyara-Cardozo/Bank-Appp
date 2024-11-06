@@ -67,7 +67,8 @@
               "buildTarget": "bankangular:build:production"
             },
             "development": {
-              "buildTarget": "bankangular:build:development"
+              "buildTarget": "bankangular:build:development",
+              "proxyConfig": "src/proxy.conf.js"
             }
           },
           "defaultConfiguration": "development"
