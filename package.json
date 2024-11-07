@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "@angular/common": "^18.2.10",
-    "@angular/core": "^18.2.10",
+    "@angular/core": "^18.2.11",
     "cors": "^2.8.5"
   },
   "devDependencies": {

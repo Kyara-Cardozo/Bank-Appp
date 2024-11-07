@@ -1,0 +1,29 @@
+<head>
+  <title>Login - IBM</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-custom">
+    <a class="navbar-brand" href="#">IBM Bank</a>
+  </nav>
+
+  <div class="container">
+    <h2 class="text-center">Login</h2>
+    <form method="post" action="/login">
+      <div class="form-group">
+        <label>Usuario:</label>
+        <input type="text" class="form-control" name="username" required />
+      </div>
+      <div class="form-group">
+        <label>Conta:</label>
+        <input type="password" class="form-control" name="password" required />
+      </div>
+      <button type="submit" class="btn btn-block">Login</button>
+    </form>
+    <p class="text-center mt-3">Não tem conta? <a href="/register" class="custom-link">Crie sua conta</a></p>
+
+    <div th:if="${param.error}" class="alert alert-danger mt-3 text-center">
+      Senha ou usuario errado.
+    </div>
+  </div>
+</body>

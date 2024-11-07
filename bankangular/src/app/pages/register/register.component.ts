@@ -30,7 +30,7 @@ export class RegisterComponent {
 
 
     this.http.post('/api/register', userData).subscribe({
-      next: () => this.router.navigate(['/login']),
+      next: () => this.router.navigate(['/']),
       error: (err) => {
         this.errorMessage = err.error?.message || 'Erro ao registrar o usuário.';
       }

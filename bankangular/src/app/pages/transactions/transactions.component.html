@@ -1,0 +1,40 @@
+<title> Extrato - IBM Bank</title>
+
+<nav class="navbar navbar-expand-lg navbar-custom">
+  <a class="navbar-brand" href="#">IBM Bank</a>
+  <ul class="navbar-nav ml-auto">
+    <li class="nav-item"><a class="nav-link" href="/dashboard">Inicio</a></li>
+    <li class="nav-item"><a class="nav-link" href="/transactions">Extrato</a></li>
+    <li class="nav-item"><a class="nav-link" href="/logout">Ate já</a></li>
+  </ul>
+</nav>
+
+<div class="container">
+  <h2 class="text-center">Extrato</h2>
+  <div class="table-responsive table-custom">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Tipo</th>
+          <th>Valor</th>
+          <th>Data</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="transaction : ${transactions}">
+          <td th:text="${transaction.id}"></td>
+          <td th:text="${transaction.type}"></td>
+          <td th:text="${transaction.amount}"
+            th:classappend="${transaction.type.contains('Trasferir') || transaction.type == 'Deposito'} ? 'text-success' : 'text-danger'">
+            <span
+              th:text="${transaction.type.contains('Trasferir') || transaction.type == 'Deposito'} ? '+$' + transaction.amount : '-$' + transaction.amount"></span>
+          </td>
+          <td th:text="${transaction.timestamp}"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p class="text-center"><a href="/dashboard" class="custom-link">Vamos para o inicio!</a></p>
+</div>
